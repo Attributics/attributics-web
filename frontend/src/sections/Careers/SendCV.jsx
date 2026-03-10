@@ -87,7 +87,7 @@ const SendCV = () => {
 
     if (status === "success") {
         return (
-            <Block xpad="small" topMargin="small">
+            <Block xpad="small" topMargin="large">
                 <section className="container mx-auto px-6 max-w-4xl mb-32">
                     <div className="bg-white p-12 md:p-16 rounded-[2rem] border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] flex flex-col items-center text-center gap-6">
                         <div className="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center">
@@ -116,7 +116,7 @@ const SendCV = () => {
 
     return (
         <>
-            <Block xpad="small" topMargin="small">
+            <Block xpad="small" topMargin="large">
                 {/* Jobs Section */}
                 <section className="container mx-auto px-6 max-w-4xl mb-32">
                     <div className="text-center mb-16">

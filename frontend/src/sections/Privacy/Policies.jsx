@@ -16,56 +16,56 @@ const sections = [
       number: "02",
       title: "What We Do Not Collect",
       content:
-        "We focus on digital strategy and data solutions, not financial processing. We do not collect sensitive financial data such as credit card details or bank account passwords through our website.",
+        "We focus on digital strategy and data solutions, not financial processing. Therefore, we do not collect sensitive financial data such as credit card details or bank account passwords through our website.",
     },
     {
       number: "03",
       title: "How We Collect Information",
       content:
-        "We collect information whenever you interact with us — when you fill out a lead form, request a MarTech audit, register for newsletters, or contact us directly. We may also receive information from third-party platforms like LinkedIn, provided you have given them permission to share your data.",
+        "We may collect information about you whenever you interact with us. For example, when you fill out a lead form, request a MarTech audit, register for our insights/newsletters, or contact us directly, you specifically and knowingly provide us with your personal information. We may also receive information about you from third-party platforms (like LinkedIn), provided you have given them permission to share your data.",
     },
     {
       number: "04",
-      title: "How We Use the Information",
-      content: "We use your information to understand your business needs and deliver high-quality services:",
+      title: "How We Use the Information We Gather",
+      content: "We require this information to understand your business needs and provide you with high-quality consulting and execution services. Specifically, we use it for:",
       list: [
-        "Internal record keeping — managing client relationships and project scopes.",
-        "Service improvement — enhancing our analytics, Agentic AI, and CEP offerings.",
-        "Communication — sending updates on digital strategies and services relevant to your business.",
-        "Customization — tailoring our website and proposals to your specific interests.",
+        "Internal record keeping: Managing client relationships and project scopes.",
+        "Service Improvement: Enhancing our analytics, Agentic AI, and CEP offerings based on market needs.",
+        "Communication: Periodically sending promotional emails about new digital strategies, thought leadership, or services that may benefit your business.",
+        "Customization: Tailoring our website and service proposals to your specific interests.",
       ],
     },
     {
       number: "05",
-      title: "Disclosure & Confidentiality",
+      title: "Disclosure and Confidentiality",
       content:
-        "Attributics does not sell, lease, or distribute your personal information to third parties unless we have your explicit permission or are required by law. We may disclose information to law enforcement or courts in India where legally mandated. Our website may link to external platforms — we are not responsible for their privacy practices.",
+        "Attributics does not sell, lease, or distribute your personal information to third parties unless we have your explicit permission or are required by law to do so. We may disclose Personal Information to law enforcement agencies, government bodies, or courts in India where legally mandated. Our website may contain links to external partner platforms or technology vendors. We are not responsible for the privacy of data collected by websites not owned or managed by Attributics. You should exercise caution and look at the privacy statements applicable to those specific websites.",
     },
     {
       number: "06",
       title: "Security",
       content:
-        "We have put in place physical, electronic, and managerial procedures to safeguard the information we collect. We are committed to ensuring your data is secure against unauthorized access or disclosure.",
+        "We are committed to ensuring that your data is secure. To prevent unauthorized access or disclosure, we have put in place suitable physical, electronic, and managerial procedures to safeguard and secure the information we collect online.",
     },
     {
       number: "07",
-      title: "Cookies",
+      title: "How We Use Cookies",
       content:
-        "We use traffic log cookies to identify which pages are being used and to improve our website experience. Cookies do not give us access to your computer or personal information beyond what you share. You can accept or decline cookies through your browser settings at any time.",
+        "A cookie is a small file placed on your computer's hard drive that helps analyze web traffic. We use traffic log cookies to identify which pages are being used. This helps us analyze data about webpage traffic and improve our website to tailor it to customer needs. A cookie in no way gives us access to your computer or any personal information, other than the data you choose to share with us. You can choose to accept or decline cookies through your browser settings.",
     },
     {
       number: "08",
-      title: "Grievance Redressal",
+      title: "Making a Complaint & Grievance Redressal",
       content:
-        "If you have any concerns about the processing of your personal data, please contact our Grievance Officer. We aim to investigate and respond within 15 working days.",
+        "In accordance with Indian law, if you have any concerns or discrepancies regarding the processing of your personal data, you may contact our Grievance Officer. We will review your complaint, investigate the matter, and respond to you appropriately. We aim to complete this investigation within 15 working days of receiving your complaint.",
       contact: true,
     },
     {
       number: "09",
-      title: "Access & Correction",
+      title: "Access and Correction",
       content: (
         <>
-          You have the right to request, correct, or delete the personal information we hold about you at any time. Email us at{" "}
+          You have the right to request details of the personal information we hold about you, or to request the deletion or correction of your data at any time. To do so, please email us at{" "}
           <a href="mailto:hello@attributics.com" className="text-[#FF5A36] hover:underline">
             hello@attributics.com
           </a>
@@ -77,22 +77,19 @@ const sections = [
   
   const Policies = () => {
     return (
-        <Block xpad="larger" topMargin="small">
+        <Block xpad="larger" topMargin="large">
             <div className="min-h-screen">
         
                 {/* Header */}
                 <div className="mb-4 pb-0 border-b border-slate-200">
-                    <span className=" section-eyebrow text-xs font-bold tracking-[0.2em] uppercase text-slate-400 mb-4 block">
-                    Legal
-                    </span>
-                    <h1 className="section-title text-4xl md:text-5xl font-display font-bold text-slate-900 mb-2">
-                    Privacy Policy
+                    <h1 className="section-title text-4xl md:text-5xl font-display !font-bold text-slate-900 mb-2">
+                        Privacy Policy For Attributics
                     </h1>
                 </div>
         
                 {/* Intro */}
-                <p className="section-description  text-slate-600 leading-relaxed mb-16 text-base">
-                    At <span className="font-semibold text-slate-900">Attributics</span>  (www.attributics.com), we are committed to ensuring that your privacy is protected. This Privacy Policy outlines how we collect, use, disclose, and safeguard your Personal Information when you visit our website or engage with our MarTech, data engineering, and digital strategy services.
+                <p className="section-description text-slate-600 leading-relaxed mb-16 text-base">
+                    At <span className="font-semibold text-slate-900">Attributics</span> (www.attributics.com), we are committed to ensuring that your privacy is protected. This Privacy Policy outlines how we collect, use, disclose, and safeguard your Personal Information when you visit our website or engage with our MarTech, data engineering, and digital strategy services.
                     <br />
                     <br />
                     This policy is governed by the laws of India, including the Information Technology Act, 2000, and the Digital Personal Data Protection (DPDP) Act, 2023.
@@ -115,38 +112,38 @@ const sections = [
         
                         {/* Content */}
                         <div className="pb-12 flex-1">
-                        <h2 className="section-title !text-lg font-bold text-slate-900 mb-3">
-                            {section.title}
-                        </h2>
-                        <p className="section-description !text-slate-500 leading-relaxed text-sm mb-4">
-                            {section.content}
-                        </p>
-                        {section.list && (
-                            <ul className="space-y-2 mt-3">
-                            {section.list.map((item, i) => (
-                                <li key={i} className="section-description flex items-start gap-3 !text-lg !text-slate-500">
-                                <span className="mt-1.5 w-1 h-1 rounded-full bg-[#FF5A36] shrink-0" />
-                                {item}
-                                </li>
-                            ))}
-                            </ul>
-                        )}
-                        {section.contact && (
-                            <div className="section-description mt-4 p-4 bg-white rounded-xl border border-slate-100 !text-lg  space-y-1">
-                                <p>
-                                    <span className="font-semibold text-slate-700">Email: </span>
-                                    <a href="mailto:hello@attributics.com" className="!text-slate-500 hover:underline">
-                                        hello@attributics.com
-                                    </a>
-                                </p>
-                                <p>
-                                    <span className="font-semibold text-slate-700">Address: </span>
-                                    <a href="#google-map-address-link" className="!text-slate-500 hover:underline">
-                                        Pune, Maharashtra, India
-                                    </a>
-                                </p>
-                            </div>
-                        )}
+                            <h2 className="section-title !text-lg font-bold text-slate-900 mb-3">
+                                {section.title}
+                            </h2>
+                            <p className="section-description !text-slate-500 leading-relaxed text-sm mb-4">
+                                {section.content}
+                            </p>
+                            {section.list && (
+                                <ul className="space-y-2 mt-3">
+                                {section.list.map((item, i) => (
+                                    <li key={i} className="section-description flex items-start gap-3 !text-lg !text-slate-500">
+                                        <span className="mt-1.5 w-1 h-1 rounded-full bg-[#FF5A36] shrink-0" />
+                                        {item}
+                                    </li>
+                                ))}
+                                </ul>
+                            )}
+                            {section.contact && (
+                                <div className="section-description mt-4 p-4 bg-white rounded-xl border border-slate-100 !text-lg space-y-1">
+                                    <p>
+                                        <span className="font-semibold text-slate-700">Email: </span>
+                                        <a href="mailto:hello@attributics.com" className="!text-slate-500 hover:underline">
+                                            hello@attributics.com
+                                        </a>
+                                    </p>
+                                    <p>
+                                        <span className="font-semibold text-slate-700">Address: </span>
+                                        <a href="#google-map-address-link" className="!text-slate-500 hover:underline">
+                                            Pune, Maharashtra, India
+                                        </a>
+                                    </p>
+                                </div>
+                            )}
                         </div>
                     </div>
                     ))}

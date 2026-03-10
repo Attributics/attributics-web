@@ -142,7 +142,7 @@ const HeaderTwo = () => {
                 <div className="absolute top-20 left-4 right-4 bg-white rounded-2xl shadow-xl border border-gray-100 p-4 lg:hidden">
                     <nav className="flex flex-col gap-4">
                         {nav.links.map((link) => {
-                            const isRoute = link.href === '/' || link.href === '/about' || link.href === '/resources' || link.href === '/careers';
+                            const isRoute = link.href === '/' || link.href === '/services' || link.href === '/about' || link.href === '/resources' || link.href === '/careers';
                             const isActive = location.pathname === link.href;
 
                             return isRoute ? (

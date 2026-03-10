@@ -38,7 +38,7 @@ const featuredResources = [
 const Featured = () => {
     return (
         <>
-            <Block xpad="large" topMargin="medium">
+            <Block xpad="large" topMargin="large">
             <section className="container mb-16">
                 <motion.div 
                 initial={{ opacity: 0, y: 20 }}
