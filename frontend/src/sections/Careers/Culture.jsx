@@ -3,6 +3,9 @@ import {careers} from "../../constants/careers";
 import useEmblaCarousel from "embla-carousel-react";
 import AutoScroll from 'embla-carousel-auto-scroll';
 
+const cultureTitleSize = "clamp(2.2rem, 1.4rem + 2.6vw, 3.4rem)";
+const cultureBodySize = "clamp(1.2rem, 0.85rem + 0.4vw, 1.2rem)";
+
 const Culture = () => {
     const [emblaRef] = useEmblaCarousel(
         { loop: true, align: 'start', dragFree: true },
@@ -17,10 +20,16 @@ const Culture = () => {
             {/* Teams/Culture Section */}
             <section className="w-full h-full">
                 <div className="text-center mb-16">
-                    <h2 className="section-title text-4xl md:text-5xl font-display font-bold text-slate-900 mb-4">
+                    <h2
+                        className="section-title font-display font-bold text-slate-900 mb-4"
+                        style={{ fontSize: cultureTitleSize }}
+                    >
                         Our Teams & <span className="highlight">Culture</span>
                     </h2>
-                    <p className="section-description text-lg max-w-2xl mx-auto">
+                    <p
+                        className="section-description max-w-2xl mx-auto"
+                        style={{ fontSize: cultureBodySize }}
+                    >
                         Discover the people behind the product. We foster a culture of innovation, collaboration, and continuous learning.
                     </p>
                 </div>

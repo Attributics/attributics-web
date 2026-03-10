@@ -5,6 +5,10 @@ import { formLinks } from "../../constants/contact";
 
 const FORMSPREE_ENDPOINT = formLinks.career;
 
+const headlineSize = "clamp(2rem, 1.4rem + 2.6vw, 3.4rem)";
+const successTitleSize = "clamp(1.4rem, 1.1rem + 1.2vw, 2rem)";
+const bodyTextSize = "clamp(0.95rem, 0.85rem + 0.4vw, 1.05rem)";
+
 const SendCV = () => {
     const [form, setForm] = useState({
         role: "",
@@ -89,12 +93,14 @@ const SendCV = () => {
         return (
             <Block xpad="small" topMargin="large">
                 <section className="container mx-auto px-6 max-w-4xl mb-32">
-                    <div className="bg-white p-12 md:p-16 rounded-[2rem] border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] flex flex-col items-center text-center gap-6">
-                        <div className="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center">
+                    <div className="bg-white p-8 sm:p-10 md:p-16 rounded-[1.5rem] sm:rounded-[2rem] border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] flex flex-col items-center text-center gap-4 sm:gap-6">
+                        <div className="w-14 h-14 sm:w-16 sm:h-16 bg-green-50 rounded-full flex items-center justify-center">
                             <CheckCircle className="text-green-500" size={32} />
                         </div>
-                        <h3 className="text-2xl font-display font-bold text-slate-900">Application Sent!</h3>
-                        <p className="text-slate-500 max-w-sm">
+                        <h3 className="font-display font-bold text-slate-900" style={{ fontSize: successTitleSize }}>
+                            Application Sent!
+                        </h3>
+                        <p className="text-slate-500 max-w-sm" style={{ fontSize: bodyTextSize }}>
                             Thanks for applying. We'll review your CV and get back to you soon.
                         </p>
                         <button
@@ -116,28 +122,31 @@ const SendCV = () => {
 
     return (
         <>
-            <Block xpad="small" topMargin="large">
+            <Block xpad="small" topMargin="medium">
                 {/* Jobs Section */}
-                <section className="container mx-auto px-6 max-w-4xl mb-32">
-                    <div className="text-center mb-16">
+                <section className="container mx-auto px-1 max-w-4xl mb-24 sm:mb-32">
+                    <div className="text-center mb-10 sm:mb-16">
                         <span className="section-eyebrow mb-4 block">What are you waiting for?</span>
-                        <h2 className="section-title text-4xl md:text-5xl font-display font-bold text-slate-900">
+                        <h2
+                            className="section-title font-display font-bold text-slate-900"
+                            style={{ fontSize: headlineSize }}
+                        >
                             Interested in Joining <span className="highlight">Us?</span>
                         </h2>
                     </div>
 
-                    <div className="bg-white p-8 md:p-10 rounded-[2rem] border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
-                        <div className="flex flex-col gap-6">
+                    <div className="bg-white p-4 sm:p-4 md:p-10 rounded-[1.5rem] sm:rounded-[2rem] border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
+                        <div className="flex flex-col gap-5 sm:gap-6">
 
                             {/* Role Field */}
                             <div>
-                                <label className="block text-sm font-bold text-slate-700 mb-2">Select Role</label>
+                                <label className="block text-xs sm:text-sm font-bold text-slate-700 mb-2">Select Role</label>
                                 <div className="relative">
                                     <select
                                         name="role"
                                         value={form.role}
                                         onChange={handleSelect}
-                                        className={`w-full bg-slate-50 border rounded-xl px-5 py-4 text-slate-700 font-medium focus:outline-none focus:ring-2 focus:ring-[#FF5A36]/20 focus:border-[#FF5A36] transition-all appearance-none cursor-pointer ${errors.role ? "border-red-400 bg-red-50" : "border-slate-200"}`}
+                                        className={`w-full bg-slate-50 border rounded-xl px-4 sm:px-5 py-3 sm:py-4 text-sm sm:text-base text-slate-700 font-medium focus:outline-none focus:ring-2 focus:ring-[#FF5A36]/20 focus:border-[#FF5A36] transition-all appearance-none cursor-pointer ${errors.role ? "border-red-400 bg-red-50" : "border-slate-200"}`}
                                     >
                                         <option value="" disabled>Choose a position...</option>
                                         <optgroup label="Data & Analytics">
@@ -175,16 +184,16 @@ const SendCV = () => {
                                 {errors.role && <p className="text-red-500 text-xs mt-1.5 font-medium">{errors.role}</p>}
                             </div>
 
-                            <div className="grid md:grid-cols-2 gap-6">
+                            <div className="grid md:grid-cols-2 gap-5 sm:gap-6">
                                 {/* Location Preference */}
                                 <div>
-                                    <label className="block text-sm font-bold text-slate-700 mb-2">Location Preference</label>
+                                    <label className="block text-xs sm:text-sm font-bold text-slate-700 mb-2">Location Preference</label>
                                     <div className="relative">
                                         <select
                                             name="location"
                                             value={form.location}
                                             onChange={handleSelect}
-                                            className={`w-full bg-slate-50 border rounded-xl px-5 py-4 text-slate-700 font-medium focus:outline-none focus:ring-2 focus:ring-[#FF5A36]/20 focus:border-[#FF5A36] transition-all appearance-none cursor-pointer ${errors.location ? "border-red-400 bg-red-50" : "border-slate-200"}`}
+                                            className={`w-full bg-slate-50 border rounded-xl px-4 sm:px-5 py-3 sm:py-4 text-sm sm:text-base text-slate-700 font-medium focus:outline-none focus:ring-2 focus:ring-[#FF5A36]/20 focus:border-[#FF5A36] transition-all appearance-none cursor-pointer ${errors.location ? "border-red-400 bg-red-50" : "border-slate-200"}`}
                                         >
                                             <option value="" disabled>Select location...</option>
                                             <option value="pune">Pune, India</option>
@@ -196,13 +205,13 @@ const SendCV = () => {
 
                                 {/* Work Type */}
                                 <div>
-                                    <label className="block text-sm font-bold text-slate-700 mb-2">Work Type</label>
+                                    <label className="block text-xs sm:text-sm font-bold text-slate-700 mb-2">Work Type</label>
                                     <div className="relative">
                                         <select
                                             name="workType"
                                             value={form.workType}
                                             onChange={handleSelect}
-                                            className={`w-full bg-slate-50 border rounded-xl px-5 py-4 text-slate-700 font-medium focus:outline-none focus:ring-2 focus:ring-[#FF5A36]/20 focus:border-[#FF5A36] transition-all appearance-none cursor-pointer ${errors.workType ? "border-red-400 bg-red-50" : "border-slate-200"}`}
+                                            className={`w-full bg-slate-50 border rounded-xl px-4 sm:px-5 py-3 sm:py-4 text-sm sm:text-base text-slate-700 font-medium focus:outline-none focus:ring-2 focus:ring-[#FF5A36]/20 focus:border-[#FF5A36] transition-all appearance-none cursor-pointer ${errors.workType ? "border-red-400 bg-red-50" : "border-slate-200"}`}
                                         >
                                             <option value="" disabled>Select type...</option>
                                             <option value="onsite">Onsite</option>
@@ -217,7 +226,7 @@ const SendCV = () => {
 
                             {/* CV Upload */}
                             <div>
-                                <label className="block text-sm font-bold text-slate-700 mb-2">Upload CV</label>
+                                <label className="block text-xs sm:text-sm font-bold text-slate-700 mb-2">Upload CV</label>
                                 <div className="relative group">
                                     <input
                                         type="file"
@@ -225,21 +234,21 @@ const SendCV = () => {
                                         onChange={handleFile}
                                         className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
                                     />
-                                    <div className={`w-full bg-slate-50 border-2 border-dashed rounded-xl px-5 py-8 flex flex-col items-center justify-center gap-3 transition-colors
+                                    <div className={`w-full bg-slate-50 border-2 border-dashed rounded-xl px-4 sm:px-5 py-6 sm:py-8 flex flex-col items-center justify-center gap-3 transition-colors
                                         ${errors.cv ? "border-red-400 bg-red-50" : "border-slate-200 group-hover:bg-[#FF5A36]/5 group-hover:border-[#FF5A36]/30"}
                                         ${cvFileName ? "border-green-300 bg-green-50" : ""}
                                     `}>
-                                        <div className={`w-12 h-12 bg-white rounded-full shadow-sm flex items-center justify-center transition-colors
+                                        <div className={`w-11 h-11 sm:w-12 sm:h-12 bg-white rounded-full shadow-sm flex items-center justify-center transition-colors
                                             ${cvFileName ? "text-green-500" : "text-slate-400 group-hover:text-[#FF5A36]"}
                                         `}>
                                             {cvFileName ? <CheckCircle size={24} /> : <Upload size={24} />}
                                         </div>
                                         <div className="text-center">
                                             {cvFileName ? (
-                                                <p className="font-bold text-green-600 text-sm">{cvFileName}</p>
+                                                <p className="font-bold text-green-600 text-sm sm:text-base">{cvFileName}</p>
                                             ) : (
                                                 <>
-                                                    <span className="font-bold text-slate-700 group-hover:text-[#FF5A36] transition-colors">Click to upload</span> or drag and drop
+                                                    <span className="font-bold text-slate-700 group-hover:text-[#FF5A36] transition-colors text-sm sm:text-base">Click to upload</span> or drag and drop
                                                     <p className="text-xs text-slate-400 mt-1">PDF, DOCX up to 10MB</p>
                                                 </>
                                             )}
@@ -260,7 +269,7 @@ const SendCV = () => {
                                 <button
                                     onClick={handleSubmit}
                                     disabled={status === "submitting"}
-                                    className="group relative px-10 py-4 bg-slate-900 text-white rounded-full font-semibold overflow-hidden transition-all hover:pr-14 disabled:opacity-60 disabled:cursor-not-allowed"
+                                    className="group relative px-8 sm:px-10 py-3 sm:py-4 text-sm sm:text-base bg-slate-900 text-white rounded-full font-semibold overflow-hidden transition-all hover:pr-12 sm:hover:pr-14 disabled:opacity-60 disabled:cursor-not-allowed"
                                 >
                                     <span className="relative z-10 flex items-center gap-2">
                                         {status === "submitting" ? "Sending..." : "Send CV"}

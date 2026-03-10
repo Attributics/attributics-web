@@ -2,6 +2,10 @@ import { motion } from "motion/react";
 import { Clock } from "lucide-react";
 import Block from "../../components/layout/Block";
 
+const recentsTitleSize = "clamp(2.4rem, 1.35rem + 2.4vw, 3.4rem)";
+const recentsBodySize = "clamp(1.2rem, 0.85rem + 0.4vw, 1.2rem)";
+const recentsCardTitleSize = "clamp(1.4rem, 1rem + 0.9vw, 1.5rem)";
+
 const recentArticles = [
   {
     id: 1,
@@ -38,10 +42,16 @@ const Recents = () => {
         <section className="bg-[#f7f7f7] pt-24 pb-42 border-t border-slate-100">
             <div className="container mx-auto px-6 max-w-7xl">
             <div className="text-center mb-16">
-                <h2 className="section-title text-4xl md:text-5xl font-display !font-extrabold tracking-tight text-slate-900 mb-4">
+                <h2
+                    className="section-title font-display !font-extrabold tracking-tight text-slate-900 mb-4"
+                    style={{ fontSize: recentsTitleSize }}
+                >
                 Recently <span className="highlight">Added</span>
                 </h2>
-                <p className="section-description text-slate-500 text-lg">
+                <p
+                    className="section-description text-slate-500"
+                    style={{ fontSize: recentsBodySize }}
+                >
                 We provide tips and resources from industry leaders. For real.
                 </p>
             </div>
@@ -64,10 +74,16 @@ const Recents = () => {
                     />
                     </div>
                     <div className="p-6 md:p-8">
-                    <h3 className="text-xl font-bold text-slate-900 mb-3 leading-snug group-hover:text-[#FF5A36] transition-colors">
+                    <h3
+                        className="font-bold text-slate-900 mb-3 leading-snug group-hover:text-[#FF5A36] transition-colors"
+                        style={{ fontSize: recentsCardTitleSize }}
+                    >
                         {article.title}
                     </h3>
-                    <p className="text-slate-500 text-sm mb-8 line-clamp-2">
+                    <p
+                        className="text-slate-500 mb-8 line-clamp-2"
+                        style={{ fontSize: recentsBodySize }}
+                    >
                         {article.excerpt}
                     </p>
                     
@@ -75,7 +91,9 @@ const Recents = () => {
                         <div className="flex items-center gap-3">
                         <img src={article.authorAvatar} alt={article.author} className="w-8 h-8 rounded-full object-cover" />
                         <div className="flex flex-col">
-                            <span className="text-xs font-bold text-slate-900">{article.author}</span>
+                            <span className="font-bold text-slate-900" style={{ fontSize: recentsBodySize }}>
+                                {article.author}
+                            </span>
                             <span className="text-[10px] text-slate-500">Regional Marketing Developer</span>
                         </div>
                         </div>

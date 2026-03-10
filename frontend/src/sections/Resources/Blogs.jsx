@@ -3,6 +3,10 @@ import { ArrowRight } from "lucide-react";
 import Block from "../../components/layout/Block";
 import { useState } from "react";
 
+const blogsTitleSize = "clamp(2.4rem, 1.35rem + 2.7vw, 3.4rem)";
+const blogsBodySize = "clamp(1.2rem, 0.85rem + 0.4vw, 1.2rem)";
+const blogsCardTitleSize = "clamp(1.4rem, 1.05rem + 0.9vw, 1.7rem)";
+
 const tabs = ["Featured", "Articles", "Case Studies"];
 
 const caseStudies = [
@@ -110,12 +114,18 @@ const Blogs = () => {
 
                 <section className="container relative">
                     <div className="flex flex-col items-center text-center mb-16">
-                        <h2 className="section-title text-4xl md:text-6xl font-display !font-extrabold text-slate-900 mb-6">
+                        <h2
+                            className="section-title font-display !font-extrabold text-slate-900 mb-6"
+                            style={{ fontSize: blogsTitleSize }}
+                        >
                             Impactful <span className="highlight">Projects</span>
                         </h2>
                         <div className="flex items-center gap-4">
                             <div className="h-px w-16 bg-[#FF5A36]" />
-                            <p className="section-description text-slate-600 max-w-xl text-left">
+                            <p
+                                className="section-description text-slate-600 max-w-xl text-left"
+                                style={{ fontSize: blogsBodySize }}
+                            >
                                 We help <span className="font-bold text-slate-900">founders, startups,</span> and businesses turn their <span className="font-bold text-slate-900">ideas</span> into reality through strategy, design, and <span className="font-bold text-slate-900">collaboration.</span>
                             </p>
                         </div>
@@ -149,14 +159,23 @@ const Blogs = () => {
                                                 {study.industry}
                                             </span>
                                         </div>
-                                        <h3 className="text-2xl font-display font-bold text-slate-900 mb-3 group-hover:text-[#FF5A36] transition-colors">
+                                        <h3
+                                            className="font-display font-bold text-slate-900 mb-3 group-hover:text-[#FF5A36] transition-colors"
+                                            style={{ fontSize: blogsCardTitleSize }}
+                                        >
                                             {study.title}
                                         </h3>
-                                        <p className="text-slate-500 text-sm leading-relaxed mb-8 flex-grow">
+                                        <p
+                                            className="text-slate-500 leading-relaxed mb-8 flex-grow"
+                                            style={{ fontSize: blogsBodySize }}
+                                        >
                                             {study.description}
                                         </p>
                                         <div className="mt-auto pt-6 border-t border-slate-100">
-                                            <div className="inline-flex items-center gap-2 text-sm font-bold text-slate-900 group-hover:text-[#FF5A36] transition-colors">
+                                            <div
+                                                className="inline-flex items-center gap-2 font-bold text-slate-900 group-hover:text-[#FF5A36] transition-colors"
+                                                style={{ fontSize: blogsBodySize }}
+                                            >
                                                 View Case Study <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                                             </div>
                                         </div>

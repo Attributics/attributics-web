@@ -2,6 +2,10 @@ import { motion } from "motion/react";
 import { ArrowRight } from "lucide-react";
 import Block from "../../components/layout/Block";
 
+const featuredTitleSize = "clamp(2.4rem, 1.4rem + 3vw, 3.4rem)";
+const featuredBodySize = "clamp(1.2rem, 0.85rem + 0.45vw, 1.2rem)";
+const cardTitleSize = "clamp(1.4rem, 1.1rem + 1.2vw, 2rem)";
+
 const featuredResources = [
   {
     id: 1,
@@ -46,18 +50,22 @@ const Featured = () => {
                 transition={{ duration: 0.6 }}
                 className="max-w-3xl"
                 >
-                <h1 className="section-title text-5xl md:text-6xl font-display !font-extrabold !tracking-tight text-slate-900 mb-3 leading-[1.1]">
+                <h1
+                    className="section-title font-display !font-extrabold !tracking-tight text-slate-900 mb-3 leading-[1.1]"
+                    style={{ fontSize: featuredTitleSize }}
+                >
                     Resource <span className="highlight">Center</span>
                 </h1>
-                <p className="section-description text-xl text-slate-600 leading-relaxed">
+                <p
+                    className="section-description text-slate-600 leading-relaxed"
+                    style={{ fontSize: featuredBodySize }}
+                >
                     Learn about everything from customer success stories, product info, to viewpoints from the core team.
                 </p>
                 </motion.div>
             </section>
         
             <section className="container relative">
-                {/* <div className="absolute left-0 top-0 bottom-0 w-8 md:w-16 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" /> */}
-                {/* <div className="absolute right-0 top-0 bottom-0 w-8 md:w-16 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" /> */}
                 
                 <div className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
                 {featuredResources.map((resource, idx) => (
@@ -72,7 +80,10 @@ const Featured = () => {
                         <span className="section-eyebrow text-xs font-bold tracking-widest uppercase !mb-4 !text-[#FF5A36]">
                             {resource.type}
                         </span>
-                        <h3 className="section-title !text-3xl font-display font-bold leading-tight mb-auto text-slate-900">
+                        <h3
+                            className="section-title font-display font-bold leading-tight mb-auto text-slate-900"
+                            style={{ fontSize: cardTitleSize }}
+                        >
                             {resource.title}
                         </h3>
                         <button className="bg-white text-slate-900 px-6 py-3 rounded-full font-bold text-sm self-start shadow-sm border border-[#FFE8E2] group-hover:border-[#FF5A36] group-hover:text-[#FF5A36] transition-all duration-300 flex items-center gap-2">
