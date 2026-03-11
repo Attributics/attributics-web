@@ -1,9 +1,11 @@
-import Block from "../../../components/layout/Block";
-import { getstarted } from "../../../constants/about";
+import Block from "../../components/layout/Block";
+import { getstarted } from "../../constants/about";
 import { Link } from 'react-router-dom';
-import Button from '../../../components/ui/Button';
+import Button from '../../components/ui/Button';
 import { motion } from 'motion/react';
 import { useState, useEffect, useRef } from 'react';
+import { typography } from "../../constants/global";
+import {Sparkles, ArrowRight, TrendingUp} from "lucide-react";
 
 const getStartedTitleSize = 'clamp(2.2rem, 1.2rem + 3vw, 3rem)';
 
@@ -64,6 +66,7 @@ const AuditCTA = () => {
 
                     <motion.h3
                         className="section-description mt-2 sm:mt-3"
+                        style={typography.desc.Normal}
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
@@ -75,18 +78,18 @@ const AuditCTA = () => {
 
                 {/* CTA Button */}
                 <motion.div
-                    className="flex-shrink-0"
                     initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.5 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.3 }}
+                    className="flex flex-col sm:flex-row items-center justify-center gap-4"
                 >
-                    <Link to="/contact">
-                        <Button>
-                            <p className="section-description" style={{ color: 'white' }}>
+                    <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
+                        <Button size="lg" className="group relative overflow-hidden transition-all hover:pr-12">
+                            <p className="section-description relative z-10 flex items-center gap-2" style={{color: 'white'}}>
+                                <Sparkles size={18} className="text-brand" />
                                 {getstarted.ctaText}{' '}
-                                <span>→</span>
                             </p>
+                            <ArrowRight className="absolute right-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all" size={20} />
                         </Button>
                     </Link>
                 </motion.div>
@@ -123,7 +126,7 @@ const SwitchingHeadline = () => {
     return (
         <div className="flex items-center justify-center">
             <div>
-                <h1 className="section-title text-center" style={{ fontSize: getStartedTitleSize, fontWeight: 600, lineHeight: 1.1 }}>
+                <h1 className="section-title text-center" style={typography.title.XXL}>
                     {getstarted.headline[0]}
                     <br />
                     {getstarted.headline[1]}{' '}

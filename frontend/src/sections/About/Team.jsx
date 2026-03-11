@@ -1,9 +1,10 @@
-import { team } from '../../../constants/about';
-import Block from '../../../components/layout/Block';
+import { team } from '../../constants/about';
+import Block from '../../components/layout/Block';
 import { motion } from 'motion/react';
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
 import WheelGestures from 'embla-carousel-wheel-gestures';
+import { typography } from '../../constants/global';
 
 const teamTitleSize = 'clamp(2.4rem, 1.25rem + 3vw, 3.2rem)';
 const teamMemberNameSize = 'clamp(1.2rem, 1.06rem + 0.6vw, 1.5rem)';
@@ -30,7 +31,7 @@ const Team = () => {
                     </motion.p>
                     <motion.h1
                         className='section-title'
-                        style={{ fontSize: teamTitleSize, fontWeight: 600, lineHeight: 1.1 }}
+                        style={typography.title.XXL}
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}

@@ -1,19 +1,16 @@
 import { useState, useEffect, useRef } from "react";
-import {
-  SparklesIcon,
-  ArrowRightIcon,
-  TrendingUpIcon,
-  ChevronRightIcon
-} from "../../../components/Icons/Icons";
-
+import {typography} from '../../constants/global';
+import {Sparkles, ArrowRight, TrendingUp} from "lucide-react";
+import Button from "../../components/ui/Button";
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence, useScroll, useTransform } from "motion/react";
 
 const Hero = () => {
     const [index, setIndex] = useState(0);
     const phrases = [
-      "predict customer behavior",
-      "automate journeys",
-      "optimize engagement"
+      "Predict Customer Behavior",
+      "Automate Journeys",
+      "Optimize Engagement"
     ];
   
     useEffect(() => {
@@ -73,7 +70,7 @@ const Hero = () => {
             transition={{ duration: 0.6 }}
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand/10 border border-brand/20 !text-brand mb-4"
           >
-            <TrendingUpIcon size={14} />
+            <TrendingUp size={18} />
             <p className="section-title uppercase" style={{color: 'var(--color-brand)', fontSize: '1rem'}}>Lifetime Value With Our AI Agent</p>
           </motion.div>
   
@@ -81,9 +78,9 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="mb-4"
+            className="mb-4 section-title" style={typography.title.XXL}
           >
-            <h1 className="section-title lg:!text-[4.2rem]" style={{fontWeight: '600'}}>Autonomous AI agents that</h1>
+            <h1>Autonomous AI Agents that</h1>
             <div className="h-[5.2rem] relative overflow-hidden flex justify-center">
               <AnimatePresence mode="wait">
                 <motion.span
@@ -94,9 +91,7 @@ const Hero = () => {
                   transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
                   className="absolute whitespace-wrap"
                 >
-                  <h1 className="section-title lg:!text-[4.2rem]" style={{fontWeight: '600'}}>
-                    <span className="highlight">{phrases[index]}</span>
-                  </h1>
+                  <span className="highlight">{phrases[index]}</span>
                 </motion.span>
               </AnimatePresence>
             </div>
@@ -108,7 +103,7 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="lg:max-w-[90%] mx-auto mb-12 leading-relaxed"
           >
-            <p className="section-description" style={{fontSize: '1.4rem'}}>
+            <p className="section-description" style={typography.desc.Normal}>
               Improve retention and LTV with real-time decisioning at scale. 
               <br />
               The next generation of martech is agentic.
@@ -121,13 +116,15 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
-            <button className="group relative px-8 py-4 bg-slate-900 text-white rounded-4xl font-semibold overflow-hidden transition-all hover:pr-12">
-              <p className="section-description relative z-10 flex items-center gap-2" style={{color: 'white'}}>
-                <SparklesIcon size={18} className="text-brand" />
-                Run a Free Audit
-              </p>
-              <ArrowRightIcon className="absolute right-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all" size={20} />
-            </button>
+            <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
+                <Button size="lg" className="group relative overflow-hidden transition-all hover:pr-12">
+                    <p className="section-description relative z-10 flex items-center gap-2" style={{color: 'white'}}>
+                        <Sparkles size={18} className="text-brand" />
+                        Run a Free Audit
+                    </p>
+                    <ArrowRight className="absolute right-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all" size={20} />
+                </Button>
+            </Link>
           </motion.div>
   
           {/* Carousel Indicators (Static for now as requested) */}
@@ -157,8 +154,8 @@ const Hero = () => {
     );
   };
 
-import { hero, logoCloud } from '../../../constants/home';
-import Block from "../../../components/layout/Block";
+import { logoCloud } from '../../constants/home';
+import Block from "../../components/layout/Block";
 
 const renderLogoRow = (row) =>
   row.map((logo, index) => {

@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { ArrowRight } from "lucide-react";
 import Block from "../../components/layout/Block";
 import { useState } from "react";
+import { typography } from "../../constants/global";
 
 const blogsTitleSize = "clamp(2.4rem, 1.35rem + 2.7vw, 3.4rem)";
 const blogsBodySize = "clamp(1.2rem, 0.85rem + 0.4vw, 1.2rem)";
@@ -115,16 +116,16 @@ const Blogs = () => {
                 <section className="container relative">
                     <div className="flex flex-col items-center text-center mb-16">
                         <h2
-                            className="section-title font-display !font-extrabold text-slate-900 mb-6"
-                            style={{ fontSize: blogsTitleSize }}
+                            className="section-title mb-6"
+                            style={typography.title.XXL}
                         >
                             Impactful <span className="highlight">Projects</span>
                         </h2>
                         <div className="flex items-center gap-4">
                             <div className="h-px w-16 bg-[#FF5A36]" />
                             <p
-                                className="section-description text-slate-600 max-w-xl text-left"
-                                style={{ fontSize: blogsBodySize }}
+                                className="section-description max-w-xl text-left"
+                                style={typography.desc.Normal}
                             >
                                 We help <span className="font-bold text-slate-900">founders, startups,</span> and businesses turn their <span className="font-bold text-slate-900">ideas</span> into reality through strategy, design, and <span className="font-bold text-slate-900">collaboration.</span>
                             </p>

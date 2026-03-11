@@ -1,7 +1,8 @@
-import {vision} from '../../../constants/about';
-import Block from '../../../components/layout/Block';
+import {vision} from '../../constants/about';
+import Block from '../../components/layout/Block';
 import { motion } from 'motion/react';
 import {CheckCircle} from 'lucide-react';
+import { typography } from '../../constants/global';
 
 const visionHeadingSize = 'clamp(2.4rem, 1.12rem + 0.8vw, 2rem)';
 
@@ -39,20 +40,20 @@ const Vision = () => {
                             {vision.vissionMission.eyebrow}
                         </span>
                         
-                        <h3 className="section-title mb-3 sm:mb-4" style={{ fontWeight: 600, fontSize: visionHeadingSize }}>
+                        <h3 className="section-title mb-3 sm:mb-4" style={typography.title.LG}>
                             {vision.vissionMission.vision.headline}
                         </h3>
-                        <p className="mb-6 sm:mb-8 lg:mb-10 section-description">
+                        <p className="mb-6 sm:mb-8 lg:mb-10 section-description" style={typography.desc.Small}>
                             {vision.vissionMission.vision.description}
                         </p>
 
-                        <h3 className="section-title mb-3 sm:mb-4" style={{ fontWeight: 600, fontSize: visionHeadingSize }}>
+                        <h3 className="section-title mb-3 sm:mb-4"  style={typography.title.LG}>
                             {vision.vissionMission.mission.headline}
                         </h3>
-                        <p className="section-description mb-4 sm:mb-6">
+                        <p className="section-description mb-4 sm:mb-6"  style={typography.desc.Small}>
                             {vision.vissionMission.mission.description[0]}
                         </p>
-                        <p className="section-description mb-4 sm:mb-6">
+                        <p className="section-description mb-4 sm:mb-6"  style={typography.desc.Small}>
                             {vision.vissionMission.mission.description[1]}
                         </p>
                         

@@ -1,10 +1,11 @@
 import { motion } from "motion/react";
 import { ArrowRight, Workflow, Database, Users, BarChart3, Zap } from "lucide-react";
-import Block from "../../../components/layout/Block";
+import Block from "../../components/layout/Block";
 import { useRef } from "react";
-import { playbook } from "../../../constants/home";
+import { playbook } from "../../constants/home";
 
-import ScrollFade from "../../../components/ScrollFade/ScrollFade";
+import ScrollFade from "../../components/ScrollFade/ScrollFade";
+import { typography } from "../../constants/global";
 
 const ICONS = {
   workflow: Workflow,
@@ -35,7 +36,7 @@ const Playbook = () => {
             <p className="section-eyebrow mb-6 block">
               {playbook.eyebrow}
             </p>
-            <h2 className="section-title" style={{ fontSize: playbookTitleSize, fontWeight: 600, lineHeight: 1.1 }}>
+            <h2 className="section-title" style={typography.title.XXL}>
               {playbook.headline} <br />
               <span className="highlight">{playbook.highlighted}</span>
             </h2>

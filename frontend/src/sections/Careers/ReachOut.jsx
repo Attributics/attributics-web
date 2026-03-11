@@ -1,7 +1,9 @@
 import { ArrowRight } from "lucide-react";
-
-const reachOutTitleSize = "clamp(2.2rem, 1.35rem + 2.8vw, 3.4rem)";
-const reachOutBodySize = "clamp(1.2rem, 0.85rem + 0.4vw, 1.2rem)";
+import { typography } from "../../constants/global";
+import {Sparkles} from "lucide-react";
+import { motion } from 'motion/react';
+import { Link } from 'react-router-dom';
+import Button from '../../components/ui/Button';
 
 const ReachOut = () => {
     return (
@@ -13,25 +15,32 @@ const ReachOut = () => {
                 </span>
                 <h2
                     className="section-title font-display font-extrabold tracking-tight text-slate-900 mb-2"
-                    style={{ fontSize: reachOutTitleSize }}
+                    style={typography.title.XXL}
                 >
-                    Build the <span className="text-[#FF5A36]">Intelligence Layer</span>
-                </h2>
-                <h2
-                    className="section-title font-display font-extrabold tracking-tight text-slate-900 mb-8"
-                    style={{ fontSize: reachOutTitleSize }}
-                >
-                    Behind Modern Retention.
+                    Build the <span className="text-[#FF5A36]">Intelligence Layer</span> for Modern Retention.
                 </h2>
                 <p
-                    className="section-description text-slate-600 mb-10 max-w-2xl mx-auto"
-                    style={{ fontSize: reachOutBodySize }}
+                    className="section-description mb-10 max-w-2xl mx-auto"
+                    style={typography.desc.Normal}
                 >
                     Build high-performance backend systems, APIs, and scalable infrastructure powering enterprise-grade solutions.
                 </p>
-                <button className="px-8 py-4 bg-slate-900 text-white font-bold rounded-full hover:bg-slate-800 transition-colors inline-flex items-center gap-2 shadow-lg shadow-slate-200">
-                    Reach Out To Us <ArrowRight className="w-5 h-5" />
-                </button>
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.3 }}
+                    className="flex flex-col sm:flex-row items-center justify-center gap-4"
+                >
+                    <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
+                        <Button size="lg" className="group relative overflow-hidden transition-all hover:pr-12">
+                            <p className="section-description relative z-10 flex items-center gap-2" style={{color: 'white'}}>
+                                <Sparkles size={18} className="text-brand" />
+                                Reach Out To Us
+                            </p>
+                            <ArrowRight className="absolute right-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all" size={20} />
+                        </Button>
+                    </Link>
+                </motion.div>
             </section>
         </>
     );

@@ -1,8 +1,9 @@
-import Block from '../../../components/layout/Block/Block';
-import Calendar from '../../../components/Calendar/Calendar';
-import { CheckCircle2 } from '../../../components/Icons/Icons';
+import Block from '../../components/layout/Block/Block';
+import Calendar from '../../components/Calendar/Calendar';
+import { CheckCircle2 } from '../../components/Icons/Icons';
 import { motion } from 'motion/react';
-import { cta } from '../../../constants/home';
+import { cta } from '../../constants/home';
+import { typography } from '../../constants/global';
 
 const fadeUp = {
     hidden: { opacity: 0, y: 24 },
@@ -37,7 +38,7 @@ const CTA = () => {
 
                     <motion.h1
                         className="section-title mb-5 sm:mb-6"
-                        style={{ fontSize: ctaTitleSize, fontWeight: 600, lineHeight: 1.1 }}
+                        style={typography.title.XXL}
                         variants={fadeUp}
                         custom={0.1}
                         initial="hidden"
@@ -51,7 +52,7 @@ const CTA = () => {
 
                     <motion.p
                         className="section-description mb-4"
-                        style={{ fontWeight: 600}}
+                        style={typography.desc.Bold}
                         variants={fadeUp}
                         custom={0.25}
                         initial="hidden"
@@ -68,6 +69,7 @@ const CTA = () => {
                             <motion.span
                                 key={i}
                                 className="section-description flex flex-row gap-2 items-start"
+                                style={typography.desc.Normal}
                                 variants={fadeUp}
                                 custom={0.3 + i * 0.07}
                                 initial="hidden"

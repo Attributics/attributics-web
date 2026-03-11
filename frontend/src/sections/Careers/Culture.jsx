@@ -2,6 +2,7 @@ import Block from "../../components/layout/Block";
 import {careers} from "../../constants/careers";
 import useEmblaCarousel from "embla-carousel-react";
 import AutoScroll from 'embla-carousel-auto-scroll';
+import { typography } from "../../constants/global";
 
 const cultureTitleSize = "clamp(2.2rem, 1.4rem + 2.6vw, 3.4rem)";
 const cultureBodySize = "clamp(1.2rem, 0.85rem + 0.4vw, 1.2rem)";
@@ -21,14 +22,14 @@ const Culture = () => {
             <section className="w-full h-full">
                 <div className="text-center mb-16">
                     <h2
-                        className="section-title font-display font-bold text-slate-900 mb-4"
-                        style={{ fontSize: cultureTitleSize }}
+                        className="section-title mb-4"
+                        style={typography.title.XXL}
                     >
                         Our Teams & <span className="highlight">Culture</span>
                     </h2>
                     <p
                         className="section-description max-w-2xl mx-auto"
-                        style={{ fontSize: cultureBodySize }}
+                        style={typography.desc.Normal}
                     >
                         Discover the people behind the product. We foster a culture of innovation, collaboration, and continuous learning.
                     </p>

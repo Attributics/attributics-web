@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ArrowRight, ChevronDown, Upload, CheckCircle } from "lucide-react";
 import Block from "../../components/layout/Block";
 import { formLinks } from "../../constants/contact";
+import { typography } from "../../constants/global";
 
 const FORMSPREE_ENDPOINT = formLinks.career;
 
@@ -125,11 +126,11 @@ const SendCV = () => {
             <Block xpad="small" topMargin="medium">
                 {/* Jobs Section */}
                 <section className="container mx-auto px-1 max-w-4xl mb-24 sm:mb-32">
-                    <div className="text-center mb-10 sm:mb-16">
+                    <div className="text-center mb-6">
                         <span className="section-eyebrow mb-4 block">What are you waiting for?</span>
                         <h2
-                            className="section-title font-display font-bold text-slate-900"
-                            style={{ fontSize: headlineSize }}
+                            className="section-title"
+                            style={typography.title.XXL}
                         >
                             Interested in Joining <span className="highlight">Us?</span>
                         </h2>

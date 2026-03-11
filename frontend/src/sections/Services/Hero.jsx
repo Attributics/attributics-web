@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { hero } from "../../constants/services";
 import Block from "../../components/layout/Block";
+import { typography } from "../../constants/global";
 
 const heroTitleSize = "clamp(2.6rem, 1.4rem + 6vw, 5.5rem)";
 const infoTitleSize = "clamp(1.15rem, 0.95rem + 0.8vw, 1.4rem)";
@@ -115,8 +116,8 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="section-title font-display font-bold text-slate-900 tracking-tight"
-              style={{ fontSize: heroTitleSize }}
+              className="section-title"
+              style={typography.title.MAX}
             >
               Our <span className="highlight">Services</span>
             </motion.h1>

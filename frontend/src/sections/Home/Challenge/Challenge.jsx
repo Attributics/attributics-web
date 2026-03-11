@@ -1,14 +1,11 @@
 import { useRef, useLayoutEffect, useState, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import ProblemCard from "./ProblemCard";
 import { features } from "../../../constants/home";
 import Block from "../../../components/layout/Block";
-import {
-  StepIndicator2Style1,
-  StepIndicator2Style2,
-  StepIndicator2Style3,
-} from "./Indicators";
+import {StepIndicator2Style1} from "./Indicators";
+import ProblemCard from "./ProblemCard";
+import { typography } from "../../../constants/global";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -37,13 +34,13 @@ const MobileLayout = ({ problems }) => (
         <span className="block section-eyebrow mb-4 sm:mb-5">{features.eyebrow}</span>
         <h2
           className="section-title"
-          style={{ fontSize: featuresTitleSize, fontWeight: 600, lineHeight: 1.1 }}
+          style={typography.title.XXL}
         >
           {features.headline}{" "}
           <span className="highlight">{features.highlighted}</span>
         </h2>
         <p
-          className="mt-4 section-description"
+          className="mt-4 section-description" style={typography.desc.Normal}
         >
           {features.description}
         </p>
@@ -129,21 +126,12 @@ const DesktopLayout = ({ problems }) => {
               <span className="block section-eyebrow mb-5 lg:mb-7">
                 {features.eyebrow}
               </span>
-              <h2
-                className="section-title"
-                style={{
-                  fontSize: featuresTitleSize,
-                  fontWeight: 600,
-                  lineHeight: 1.1,
-                }}
-              >
+              <h2 className="section-title" style={typography.title.XXL}>
                 {features.headline}{" "}
                 <br />
                 <span className="highlight">{features.highlighted}</span>
               </h2>
-              <p
-                className="mt-5 section-description"
-              >
+              <p className="mt-5 section-description" style={typography.desc.Normal}>
                 {features.description}
               </p>
 
@@ -192,7 +180,7 @@ const DesktopLayout = ({ problems }) => {
 };
 
 // ─── Main ─────────────────────────────────────────────────────────────────────
-const ProblemSolution = () => {
+const Challenge = () => {
   const isDesktop = useIsDesktop();
   const problems = features.problems;
 
@@ -207,4 +195,4 @@ const ProblemSolution = () => {
   );
 };
 
-export default ProblemSolution;
+export default Challenge;

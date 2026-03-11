@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { Clock } from "lucide-react";
 import Block from "../../components/layout/Block";
+import { typography } from "../../constants/global";
 
 const recentsTitleSize = "clamp(2.4rem, 1.35rem + 2.4vw, 3.4rem)";
 const recentsBodySize = "clamp(1.2rem, 0.85rem + 0.4vw, 1.2rem)";
@@ -43,14 +44,14 @@ const Recents = () => {
             <div className="container mx-auto px-6 max-w-7xl">
             <div className="text-center mb-16">
                 <h2
-                    className="section-title font-display !font-extrabold tracking-tight text-slate-900 mb-4"
-                    style={{ fontSize: recentsTitleSize }}
+                    className="section-title mb-4"
+                    style={typography.title.XXL}
                 >
                 Recently <span className="highlight">Added</span>
                 </h2>
                 <p
-                    className="section-description text-slate-500"
-                    style={{ fontSize: recentsBodySize }}
+                    className="section-description"
+                    style={typography.desc.Normal}
                 >
                 We provide tips and resources from industry leaders. For real.
                 </p>

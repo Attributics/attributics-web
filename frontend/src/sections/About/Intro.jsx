@@ -1,6 +1,7 @@
-import {vision} from '../../../constants/about';
-import Block from '../../../components/layout/Block';
+import {vision} from '../../constants/about';
+import Block from '../../components/layout/Block';
 import { motion } from 'motion/react';
+import { typography } from '../../constants/global';
 
 const introTitleSize = 'clamp(2.4rem, 1.2rem + 3.8vw, 4.2rem)';
 
@@ -19,7 +20,7 @@ const Intro = () => {
                     <span className="section-eyebrow mb-4 sm:mb-5 lg:mb-6 block">
                         {vision.whoAreWe.eyebrow}
                     </span>
-                    <h1 className="mb-4 section-title" style={{ fontSize: introTitleSize, fontWeight: 600, lineHeight: 1.1 }}>
+                    <h1 className="mb-4 section-title" style={typography.title.XXL}>
                         {vision.whoAreWe.headline}
                         <br />
                         <span className="highlight">{vision.whoAreWe.highlightedText}</span>
@@ -29,6 +30,7 @@ const Intro = () => {
                             <motion.p 
                                 key={idx} 
                                 className="section-description mb-4 sm:mb-5 lg:mb-6"
+                                style={typography.desc.Small}
                                 initial={{ opacity: 0, y: 10 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}

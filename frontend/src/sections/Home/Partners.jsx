@@ -1,5 +1,6 @@
-import Block from '../../../components/layout/Block';
-import { partners } from '../../../constants/home';
+import Block from '../../components/layout/Block';
+import { typography } from '../../constants/global';
+import { partners } from '../../constants/home';
 import { motion } from 'motion/react';
 
 const EASE = [0.22, 1, 0.36, 1];
@@ -40,7 +41,7 @@ const Partners = () => {
 
                             <motion.h2
                                 className="section-title mb-3 sm:mb-4"
-                                style={{ fontSize: partnersTitleSize, fontWeight: 600, lineHeight: 1.1 }}
+                                style={typography.title.XXL}
                                 {...fadeUp(0.08)}
                             >
                                 <span className="highlight">{partners.headline}</span>
@@ -49,6 +50,7 @@ const Partners = () => {
 
                             <motion.p
                                 className="section-description"
+                                style={typography.desc.Normal}
                                 {...fadeUp(0.16)}
                             >
                                 {partners.description}

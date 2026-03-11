@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { ArrowRight } from "lucide-react";
 import Block from "../../components/layout/Block";
+import { typography } from "../../constants/global";
 
 const featuredTitleSize = "clamp(2.4rem, 1.4rem + 3vw, 3.4rem)";
 const featuredBodySize = "clamp(1.2rem, 0.85rem + 0.45vw, 1.2rem)";
@@ -51,14 +52,14 @@ const Featured = () => {
                 className="max-w-3xl"
                 >
                 <h1
-                    className="section-title font-display !font-extrabold !tracking-tight text-slate-900 mb-3 leading-[1.1]"
-                    style={{ fontSize: featuredTitleSize }}
+                    className="section-title mb-3"
+                    style={typography.title.XXL}
                 >
                     Resource <span className="highlight">Center</span>
                 </h1>
                 <p
-                    className="section-description text-slate-600 leading-relaxed"
-                    style={{ fontSize: featuredBodySize }}
+                    className="section-description "
+                    style={typography.desc.Normal}
                 >
                     Learn about everything from customer success stories, product info, to viewpoints from the core team.
                 </p>

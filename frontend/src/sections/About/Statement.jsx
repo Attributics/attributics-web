@@ -1,7 +1,49 @@
-import { useState, useEffect, useRef } from 'react';
-import { metricCards } from '../../../constants/about';
+import Block from '../../components/layout/Block';
 import { motion } from 'motion/react';
+
+const statementTitleSize = 'clamp(2.2rem, 1.05rem + 1.5vw, 2.2rem)';
+
+const Statement = () => {
+    return (
+        <Block xpad='large'>
+        <section id="about" className='h-full w-full'>
+            {/* STATEMENT */}
+            <motion.div 
+                className="relative h-auto w-full hyphens-none flex flex-col items-center mx-auto"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.5 }}
+            >
+                <div className=" mb-12 h-auto flex flex-col items-center lg:max-w-[80%]">
+                   
+                    <motion.h3
+                        className="section-title text-center"
+                        style={typography.title.MD}
+                        initial={{ opacity: 0, y: 15 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 0.2 }}
+                    >
+                        Sustainable Growth is built on{" "}
+                        <span className="highlight">Data</span>,
+                        powered by <span className="highlight">Automation</span>,
+                        and scaled through{" "}
+                        <span className="highlight">Lifecycle Intelligence</span>.
+                    </motion.h3>
+                </div>
+
+                <Metrics />
+            </motion.div>
+        </section>
+        </Block>
+    );
+};
+
+import { useState, useEffect, useRef } from 'react';
+import { metricCards } from '../../constants/about';
 import { TrendingUp, TrendingDown } from 'lucide-react';
+import { typography } from '../../constants/global';
 
 const metricValueSize = 'clamp(2rem, 1.25rem + 2.2vw, 3rem)';
 const metricUnitSize = 'clamp(1.15rem, 0.95rem + 1vw, 1.8rem)';
@@ -109,4 +151,4 @@ const GrowthArrow = ({ positive = true }) => {
     );
 };
 
-export default Metrics;
+export default Statement;
