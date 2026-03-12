@@ -9,6 +9,9 @@ const rateLimit = require("express-rate-limit");
 const nodemailer = require("nodemailer");
 const multer = require("multer");
 
+const { Resend } = require("resend");
+const resendClient = new Resend(process.env.RESEND_API_KEY);
+
 const app = express();
 app.use(cors({
   origin: [
@@ -502,8 +505,8 @@ const smtpMailer = {
   async sendFormEmail({ formId, fields, submittedAt, attachments = [], recipientEmail }) {
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
-      port: Number(process.env.SMTP_PORT) || 587,
-      secure: process.env.SMTP_SECURE === "true", // true for 465, false for 587
+      port: Number(process.env.SMTP_PORT),
+      secure: process.env.SMTP_SECURE, // true for 465, false for 587
       family: 4,
       auth: {
         user: process.env.SMTP_USER,
@@ -530,6 +533,40 @@ const smtpMailer = {
       html: buildEmailHtml(formId, fields, submittedAt, attachments),
       attachments: emailAttachments,
     });
+  },
+};
+const resendMailer = {
+  name: "resend",
+  async sendFormEmail({ formId, fields, submittedAt, attachments = [], recipientEmail }) {
+    console.log(`[resend] preparing email → formId=${formId} to=${recipientEmail} attachments=${attachments.length}`);
+
+    const emailAttachments = attachments.map((file) => {
+      console.log(`[resend] attaching → ${file.originalname} (${(file.size / 1024).toFixed(1)} KB, ${file.mimetype})`);
+      return {
+        filename: file.originalname,
+        content: file.buffer,
+      };
+    });
+
+    const payload = {
+      from: `Attributics Forms <${process.env.RESEND_FROM}>`,
+      to: recipientEmail,
+      subject: `New ${formId} submission`,
+      html: buildEmailHtml(formId, fields, submittedAt, attachments),
+      ...(emailAttachments.length > 0 && { attachments: emailAttachments }),
+    };
+
+    console.log(`[resend] sending → from=${payload.from} subject="${payload.subject}"`);
+
+    const { data, error } = await resendClient.emails.send(payload);
+
+    if (error) {
+      console.error(`[resend] send failed → formId=${formId}`, error);
+      throw new Error(`Resend error: ${error.message}`);
+    }
+
+    console.log(`[resend] sent successfully → id=${data.id} formId=${formId}`);
+    return data;
   },
 };
 
