@@ -16,6 +16,7 @@ app.use(cors({
     "https://attributics-demo.vercel.app"
   ]
 }));
+app.set("trust proxy", 1);
 app.use(express.json({ limit: "2mb" }));
 
 // ─── Shared Helpers ───────────────────────────────────────────────────────────
@@ -651,31 +652,52 @@ app.use("/api/forms", formLimiter);
 
 app.post(
   "/api/forms/:formId",
-  // Accept any field name for file uploads; non-multipart requests pass through fine.
   upload.any(),
   handleMulterError,
   async (req, res) => {
     try {
       const { formId } = req.params;
       const { _honeypot, ...fields } = req.body;
-      const attachments = req.files ?? []; // multer populates this
+      const attachments = req.files ?? [];
+
+      console.log(`[forms] incoming submission → formId=${formId}`);
+      console.log(`[forms] ip=${req.ip}`);
+      console.log(`[forms] fields received:`, Object.keys(fields));
+      console.log(
+        `[forms] attachments:`,
+        attachments.map((f) => f.originalname)
+      );
 
       // Honeypot
-      if (_honeypot) return res.json({ success: true });
+      if (_honeypot) {
+        console.log("[forms] honeypot triggered — likely bot");
+        return res.json({ success: true });
+      }
 
       // Payload checks
       if (!fields || typeof fields !== "object" || Array.isArray(fields)) {
+        console.log("[forms] invalid payload structure");
         return res.status(400).json({ error: "Invalid payload." });
       }
+
       if (Object.keys(fields).length === 0 && attachments.length === 0) {
-        return res.status(400).json({ error: "No fields or attachments provided." });
+        console.log("[forms] empty submission");
+        return res
+          .status(400)
+          .json({ error: "No fields or attachments provided." });
       }
+
       if (Object.keys(fields).length > 20) {
+        console.log("[forms] too many fields");
         return res.status(400).json({ error: "Too many fields." });
       }
+
       for (const key of Object.keys(fields)) {
         if (String(fields[key]).length > 2000) {
-          return res.status(400).json({ error: `Field "${key}" exceeds maximum length.` });
+          console.log(`[forms] field too large → ${key}`);
+          return res
+            .status(400)
+            .json({ error: `Field "${key}" exceeds maximum length.` });
         }
       }
 
@@ -689,24 +711,31 @@ app.post(
         submittedAt,
       };
 
-      // Save metadata + attachment files to disk
+      console.log(`[forms] saving submission → ${formId}`);
       saveSubmission(formId, submission, attachments);
 
-      // Send email — non-blocking, don't fail the request if email fails
+      // EMAIL DEBUGGING
+      console.log(`[forms] attempting to send email → ${formId}`);
+
       activeMailer
         .sendFormEmail({ formId, fields, submittedAt, attachments })
+        .then((result) => {
+          console.log(`[forms] email sent successfully → ${formId}`);
+          console.log(`[forms] mailer response:`, result);
+        })
         .catch((err) => {
-          console.error(`[forms] email failed for ${formId}:`, err.message);
+          console.error(`[forms] email failed → ${formId}`);
+          console.error(`[forms] reason:`, err);
         });
 
       console.log(
-        `[forms] ${formId} — fields:`,
-        fields,
-        `attachments: ${attachments.map((f) => f.originalname).join(", ") || "none"}`
+        `[forms] submission accepted → ${formId} | fields=${Object.keys(fields).length} | attachments=${attachments.length}`
       );
+
       res.json({ success: true });
+
     } catch (err) {
-      console.error("[forms] error:", err);
+      console.error("[forms] fatal error:", err);
       res.status(500).json({ error: "Failed to submit form." });
     }
   }
